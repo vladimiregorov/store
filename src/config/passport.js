@@ -5,12 +5,10 @@ import User from "../controllers/user";
 const LocalStrategy = Local.Strategy;
 
 passport.serializeUser(function(user, done) {
-  console.log("Serialize...", user);
   done(null, user.id);
 });
 
 passport.deserializeUser(function(id, done) {
-  console.log("Deserialize...", id);
   User.getById(id, function(err, user) {
     done(err, user);
   });
