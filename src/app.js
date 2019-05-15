@@ -8,6 +8,7 @@ import session from "express-session";
 import passport from "passport";
 import { createUsers } from "./routes/register";
 import { loginUsers } from "./routes/login";
+import config from "./config/config";
 
 const port = process.PORT || "3000";
 const app = express();
@@ -21,7 +22,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(
   session({
-    secret: "0GBlJZ9EKBt2Zbi2flRPvztczCewBxXK",
+    secret: config.secret,
     cookie: {
       path: "/",
       httpOnly: true,
