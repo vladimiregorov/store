@@ -1,10 +1,10 @@
 import bcrypt from "bcrypt";
 import models from "../models";
 
-console.log(models);
+const saltRounds = 12;
 
 const creatureHash = async password => {
-  let salt = await bcrypt.genSalt(12);
+  let salt = await bcrypt.genSalt(saltRounds);
   let hash = await bcrypt.hash(password, salt);
   let pass = { hash: hash, salt: salt };
   return pass;
