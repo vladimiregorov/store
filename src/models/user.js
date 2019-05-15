@@ -9,6 +9,5 @@ export default (sequelize, DataTypes) => {
     },
     {}
   );
-  Users.associate = function(models) {};
   return Users;
 };
